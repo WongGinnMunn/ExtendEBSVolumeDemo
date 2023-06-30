@@ -3,7 +3,7 @@ import json
 
 ssm_client = boto3.client("ssm")
 
-def get_os_type(event):
+def main(event):
     try:
         instance_info = ssm_client.describe_instance_information(
             InstanceInformationFilterList=[
