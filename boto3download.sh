@@ -1,1 +1,1 @@
-"which bash"
+"echo \"Hello World\" >> test.log",
