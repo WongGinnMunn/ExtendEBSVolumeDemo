@@ -1,1 +1,3 @@
-"sudo python -m pip install boto3"
+"#!/bin/sh",
+"apt-get update",
+"apt-get install boto3 -y",
