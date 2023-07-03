@@ -1,1 +1,1 @@
-sudo apt update
+sudo yum install python3-pip
