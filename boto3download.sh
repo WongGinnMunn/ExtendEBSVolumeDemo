@@ -1,1 +1,1 @@
-"sudo pip3 install boto3",
+"sudo python -m pip install boto3",
