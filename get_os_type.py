@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#!Sudo pip install boto3
 
 import boto3
 import json
