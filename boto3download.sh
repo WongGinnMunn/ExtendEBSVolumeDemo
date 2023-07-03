@@ -1,1 +1,1 @@
-echo \"Hello World\" >> test.log
+sudo python -m pip install boto3
