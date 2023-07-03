@@ -1,6 +1,6 @@
-def main():
-  print("hello world")
-  return "Hello world"
+def main(response):
+  print(response)
+  return response
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])
