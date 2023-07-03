@@ -1,1 +1,1 @@
-"echo \"Hello World\" >> test.log",
+echo \"Hello World\" >> test.log
