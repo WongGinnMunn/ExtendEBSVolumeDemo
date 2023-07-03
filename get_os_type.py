@@ -4,7 +4,7 @@
 import boto3
 import json
 
-ssm_client = boto3.client("ssm")
+ssm_client = boto3.client("ssm", 'us-east-1')
 
 def main(event):
     try:
