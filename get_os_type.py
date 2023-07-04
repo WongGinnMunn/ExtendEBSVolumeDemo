@@ -11,6 +11,7 @@ def main(event):
                     "valueSet": [event['InstanceId']]}
             ]
         )
+        print("hello")
         if len(instance_info["InstanceInformationList"]) > 0:
             os_type = instance_info["InstanceInformationList"][0]["PlatformType"]
             event['OS_type'] = os_type
