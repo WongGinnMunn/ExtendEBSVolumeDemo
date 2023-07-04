@@ -1,5 +1,6 @@
 import boto3
 import json
+import sys
 
 ssm_client = boto3.client("ssm", 'us-east-1')
 
@@ -26,7 +27,8 @@ def main(event):
         print("hello5")
         raise Exception(e)
 
-
+if __name__ == '__main__':
+    main(sys.argv[1:])
 
 '''
 {
