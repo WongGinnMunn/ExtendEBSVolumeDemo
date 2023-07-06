@@ -28,7 +28,8 @@ def main(event):
         raise Exception(e)
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+  data=json.loads(sys.argv[1])
+  main(data)
 
 '''
 {
