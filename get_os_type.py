@@ -6,6 +6,7 @@ ssm_client = boto3.client("ssm", 'us-east-1')
 
 def main(event):
     print("hello1")
+    print(event)
     try:
         instance_info = ssm_client.describe_instance_information(
             InstanceInformationFilterList=[
