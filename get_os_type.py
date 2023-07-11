@@ -5,7 +5,7 @@ import sys
 ssm_client = boto3.client("ssm", 'us-east-1')
 
 def main(arg):
-    with open("InstanceData",'r+') as file:
+    with open("InstanceData.json",'r+') as file:
           # First we load existing data into a dict.
         event = json.load(file)
     
