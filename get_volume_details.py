@@ -36,7 +36,6 @@ def main(arg):
         
         toAppend = {
             "VolumeId": volumeId,
-            "Current_size": current_size,
             "OldSize": str(current_size),
             "NewSizeGib": str(newVolumeSize(current_size))
         }
