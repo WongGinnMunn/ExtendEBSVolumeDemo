@@ -6,7 +6,7 @@ def main(events):
   }
 
   json_string = json.dumps(my_dict, indent=2)
-  with open('temp.json', 'w') as f:
+  with open('InstanceData.json', 'w') as f:
     f.write(json_string)
 
 
