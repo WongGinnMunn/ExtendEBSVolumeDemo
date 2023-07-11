@@ -4,9 +4,10 @@ import sys
 
 ssm_client = boto3.client("ssm", 'us-east-1')
 
-def main(event):
-    print("hello1")
-    print(event)
+def main(arg):
+  f = open('InstanceData.json')
+  event = json.load(f)
+    
     try:
         instance_info = ssm_client.describe_instance_information(
             InstanceInformationFilterList=[
@@ -18,14 +19,11 @@ def main(event):
         if len(instance_info["InstanceInformationList"]) > 0:
             os_type = instance_info["InstanceInformationList"][0]["PlatformType"]
             event['OS_type'] = os_type
-            print("hello3")
-            return event
+            return arg
         else:
-            print("hello4")
             raise Exception(
                 "Please give permission to Systems Manager")
     except Exception as e:
-        print("hello5")
         raise Exception(e)
 
 if __name__ == '__main__':
