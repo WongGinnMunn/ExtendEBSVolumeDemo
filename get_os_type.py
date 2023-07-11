@@ -5,8 +5,8 @@ import sys
 ssm_client = boto3.client("ssm", 'us-east-1')
 
 def main(arg):
-  f = open('InstanceData.json')
-  event = json.load(f)
+    f = open('InstanceData.json')
+    event = json.load(f)
     
     try:
         instance_info = ssm_client.describe_instance_information(
@@ -27,9 +27,6 @@ def main(arg):
         raise Exception(e)
 
 if __name__ == '__main__':
-  # print(sys.argv[1])
-  # data=json.loads(sys.argv[1])
-  # main(data["run"])
   main(sys.argv[1:])
 
 '''
