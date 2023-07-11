@@ -33,14 +33,12 @@ def main(arg):
         
         volumeId = getVolumeId(file_data['InstanceId'])
         current_size = getVolumeSize(volumeId)
-        OldSize = str(current_size)
-        newSizeGib = str(newVolumeSize(current_size))
         
         toAppend = {
             "VolumeId": volumeId,
-            "current_size": current_size,
-            "OldSize": OldSize,
-            "NewSizeGib": newSizeGib
+            "Current_size": current_size,
+            "OldSize": str(current_size),
+            "NewSizeGib": str(newVolumeSize(current_size))
         }
         
         file_data.update(toAppend)
