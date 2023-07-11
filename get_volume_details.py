@@ -3,7 +3,7 @@ import sys
 import boto3
 import math
 
-ec2 = boto3.client('ec2')
+ec2 = boto3.client('ec2', 'us-east-1')
 
 
 def getVolumeId(instance_id):
