@@ -5,8 +5,9 @@ import sys
 ssm_client = boto3.client("ssm", 'us-east-1')
 
 def main(arg):
-    f = open('InstanceData.json')
-    event = json.load(f)
+    with open("InstanceData",'r+') as file:
+          # First we load existing data into a dict.
+        event = json.load(file)
     
     try:
         instance_info = ssm_client.describe_instance_information(
@@ -18,7 +19,11 @@ def main(arg):
         print("hello2")
         if len(instance_info["InstanceInformationList"]) > 0:
             os_type = instance_info["InstanceInformationList"][0]["PlatformType"]
-            event['OS_type'] = os_type
+            
+            event.append({"OS_type":os_type})
+            file.seek(0)
+            json.dump(event, file, indent = 4)
+
             return arg
         else:
             raise Exception(
@@ -28,10 +33,3 @@ def main(arg):
 
 if __name__ == '__main__':
   main(sys.argv[1:])
-
-'''
-{
-  "InstanceId": "i-0d048bb574834bfa1",
-  "OS_type": "Linux"
-}
-'''
