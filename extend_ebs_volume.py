@@ -5,7 +5,7 @@ import time
 
 ec2_client = boto3.client('ec2', 'us-east-1')    
 
-def main(arg):
+def main():
     with open('InstanceData.json', 'r') as file:
         file_data = json.load(file)
         
@@ -20,10 +20,10 @@ def main(arg):
                 VolumeIds=[file_data['VolumeId']])
             
             if str(response["Volumes"][0]["Size"]) == file_data['NewSizeGib']:
-                return arg
+                return
             
             time.sleep(3)
             
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main()
