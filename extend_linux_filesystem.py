@@ -1,11 +1,10 @@
 import json
-import sys
 import boto3
 import time
 
 ssm_client = boto3.client('ssm', 'us-east-1')
 
-def main(arg):
+def main():
     with open('InstanceData.json', 'r') as file:
         file_data = json.load(file)
         
@@ -43,7 +42,7 @@ def main(arg):
             raise Exception("Error extending the file system")
         
         
-        return arg
+        return
 
 
 def get_command_status_with_wait(instance_id, command_id):
@@ -57,4 +56,4 @@ def get_command_status_with_wait(instance_id, command_id):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main()
