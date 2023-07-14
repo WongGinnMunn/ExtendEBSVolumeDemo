@@ -5,7 +5,7 @@ import sys
 ssm_client = boto3.client("ssm", 'us-east-1')
 
 
-def main(arg):
+def main():
     with open('InstanceData.json', 'r+') as file:
 
         file_data = json.load(file)
@@ -26,7 +26,7 @@ def main(arg):
                 file.seek(0)
                 json.dump(file_data, file, indent=4)
 
-                return arg
+                return
 
             else:
                 raise Exception(
