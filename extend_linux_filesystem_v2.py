@@ -47,11 +47,10 @@ def main():
                     # 2. findmnt -T {} to get the filesystem
                     # 3. "awk" command is used to extract the second column of the output which contains the mount point
                     # 4. sed -n '2 p' is to print only the second one of output. Hence partition is only assigned the second line output. 
-                    
                     # | means execute the preceding statement and connect its stdout to the stdin of the statement which follows    
                                    
                     
-                    # "deviceName=`lsblk -npo pkname $partition`", 
+                    "deviceName=`lsblk -npo pkname $partition`", 
                     
                     
                     # -n: Do not print a header line
