@@ -42,24 +42,24 @@ def main():
                         mount_point
                     ), 
                     
-                    '''
-                    1. create a string variable named "partition" 
-                    2. findmnt -T {} to get the filesystem
-                    3. "awk" command is used to extract the second column of the output which contains the mount point
-                    4. sed -n '2 p' is to print only the second one of output. Hence partition is only assigned the second line output. 
                     
-                    | means execute the preceding statement and connect its stdout to the stdin of the statement which follows    
+                    # 1. create a string variable named "partition" 
+                    # 2. findmnt -T {} to get the filesystem
+                    # 3. "awk" command is used to extract the second column of the output which contains the mount point
+                    # 4. sed -n '2 p' is to print only the second one of output. Hence partition is only assigned the second line output. 
+                    
+                    # | means execute the preceding statement and connect its stdout to the stdin of the statement which follows    
                                    
-                    '''
-                    "deviceName=`lsblk -npo pkname $partition`", 
                     
-                    '''
-                    -n: Do not print a header line
-                    -p: used to display the output in a stable, machine-readable format
-                    -o: Specify which output columns to print
-                    used to get the parent device (disk) of a specified partition
-                    pkname: internal parent kernel device name
-                    '''
+                    # "deviceName=`lsblk -npo pkname $partition`", 
+                    
+                    
+                    # -n: Do not print a header line
+                    # -p: used to display the output in a stable, machine-readable format
+                    # -o: Specify which output columns to print
+                    # used to get the parent device (disk) of a specified partition
+                    # pkname: internal parent kernel device name
+                    
                     "partitionNumber=${partition#$deviceName}", # matching up the partiton and the device name and the partition number is the part where the partition string does not mtach the device name. 
                     "sudo growpart $deviceName $partitionNumber",
                     "sudo xfs_growfs -d {} || sudo resize2fs $partition".format(
