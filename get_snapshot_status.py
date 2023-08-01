@@ -2,7 +2,7 @@ import json
 import sys
 import boto3
 
-ec2_client = boto3.client('ec2', 'us-east-1')
+ec2_client = boto3.client('ec2', 'ap-southeast-1')
 
 
 def main(arg):
