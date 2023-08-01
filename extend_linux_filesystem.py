@@ -2,7 +2,7 @@ import json
 import boto3
 import time
 
-ssm_client = boto3.client('ssm', 'ap-southeast-1')
+ssm_client = boto3.client('ssm', 'us-east-1')
 
 def main():
     with open('InstanceData.json', 'r') as file:
